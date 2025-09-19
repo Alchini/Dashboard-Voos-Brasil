@@ -1,91 +1,101 @@
-# ✈️ Dashboard de Análise de Atrasos de Voos no Brasil
+Um dashboard interativo desenvolvido em **Python + Streamlit**, que analisa os **atrasos de voos no Brasil** entre 2022 e 2024.  
+O projeto combina **análise exploratória de dados (EDA)** com **visualizações modernas e interativas (Plotly)**.
 
-Análise de dados e dashboard interativo sobre os padrões de atrasos em voos comerciais no Brasil, utilizando dados abertos da ANAC para o período de 2022 a 2024.
-
-Este projeto foi desenvolvido como parte da atividade N1 - Análise de Dados. O resultado final é um dashboard interativo onde é possível filtrar os dados e explorar visualmente os principais insights sobre a pontualidade da aviação brasileira.
-
-### Acesse o Dashboard Online
-**[>> Clique aqui para interagir com o dashboard ao vivo <<](https://aviacao-atrasos-gustavostorch.streamlit.app/)**
+![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)  
+![Streamlit](https://img.shields.io/badge/Streamlit-1.x-red?logo=streamlit)  
+![Plotly](https://img.shields.io/badge/Plotly-5.x-green?logo=plotly)
 
 ---
 
-## 📊 Principais Análises e Perguntas Respondidas
+## Funcionalidades
 
-O dashboard foi construído para responder às seguintes perguntas:
+-  **Visão Geral**:
+  - Total de voos realizados.
+  - Total de atrasos (>15 minutos).
+  - Percentual de atrasos.
 
--   **Visão Geral:** Qual o volume total de voos, de atrasos e o percentual correspondente no período selecionado?
--   **Ranking de Aeroportos:** Qual o aeroporto com o maior número de decolagens atrasadas no Brasil?
--   **Ranking de Companhias Aéreas:** Qual o desempenho comparativo das principais companhias aéreas em relação a atrasos, ano a ano?
--   **Análise Temporal:** Quais dias da semana e períodos do dia concentram o maior volume de atrasos?
--   **Análise de Tendência (2022-2024):** Quais aeroportos apresentaram uma tendência consistente de aumento ou de redução no número de atrasos?
+-  **Top 10 Aeroportos com Mais Atrasos**:
+  - Ranking atualizado com gráfico interativo.
 
----
+-  **Comparativo de Companhias Aéreas**:
+  - Evolução anual dos atrasos por companhia (se mais de um ano for selecionado).
 
-## 🛠️ Tecnologias e Ferramentas Utilizadas
+-  **Distribuição de Atrasos**:
+  - Por dia da semana.
+  - Por período do dia (Madrugada, Manhã, Tarde, Noite).
 
--   **Linguagem:** Python 3
--   **Bibliotecas de Análise:** Pandas
--   **Bibliotecas de Visualização:** Matplotlib e Seaborn
--   **Dashboard Interativo:** Streamlit
--   **Hospedagem:** Streamlit Community Cloud
--   **Versionamento:** Git e GitHub
-
----
-
-## 📄 Fontes de Dados
-
-Os dados utilizados neste projeto são públicos e foram obtidos das seguintes fontes:
-
-1.  **Histórico de Voos (VRA):** [Agência Nacional de Aviação Civil (ANAC)](https://www.gov.br/anac/pt-br/acesso-a-informacao/dados-abertos/areas-de-atuacao/voos-e-operacoes-aereas/voo-regular-ativo-vra)
-2.  **Códigos de Aeroportos:** [DataHub.io - Airport Codes](https://datahub.io/core/airport-codes)
-3.  **Códigos de Companhias Aéreas:** Dados auxiliares para mapeamento de siglas.
+- **Tendências (2022–2024)**:
+  - Aeroportos com **aumento consistente** nos atrasos.
+  - Aeroportos com **redução consistente** nos atrasos.
+  - Gráfico de linha mostrando a evolução anual.
 
 ---
 
-## 🚀 Como Executar o Projeto Localmente
+## 🛠️ Tecnologias Utilizadas
 
-Para executar este dashboard em sua máquina local, siga os passos abaixo:
-
-1.  **Clone o repositório:**
-    ```bash
-    git clone [(https://github.com/GustavoStorch/aviacao.git))
-    ```
-
-2.  **Navegue até a pasta do projeto:**
-    ```bash
-    cd aviacao
-    ```
-
-3.  **Crie um ambiente virtual (recomendado):**
-    ```bash
-    python -m venv venv
-    ```
-    *No Windows:*
-    ```bash
-    .\venv\Scripts\activate
-    ```
-    *No Linux/Mac:*
-    ```bash
-    source venv/bin/activate
-    ```
-
-4.  **Instale as dependências:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-5.  **Execute o aplicativo Streamlit:**
-    ```bash
-    streamlit run main.py
-    ```
-
-O dashboard deverá abrir automaticamente no seu navegador.
+- [Python](https://www.python.org/)  
+- [Streamlit](https://streamlit.io/)  
+- [Pandas](https://pandas.pydata.org/)  
+- [Plotly Express](https://plotly.com/python/plotly-express/)  
 
 ---
 
-### Autor
+## 📂 Estrutura do Projeto
 
-**Gustavo Storch**
+```
+📦 dashboard-voos
+ ┣ 📂 dataset
+ ┃ ┣ flights.csv
+ ┃ ┣ flights_2023.csv
+ ┃ ┣ flights_2024.csv
+ ┃ ┣ airport-codes.csv
+ ┃ ┗ airlines-codes.csv
+ ┣ 📜 app.py
+ ┣ 📜 README.md
+ ┗ 📜 requirements.txt
+```
 
-* **LinkedIn:** `https://www.linkedin.com/in/seu-linkedin/`
-* **Medium:** `https://medium.com/@seu-usuario`
+- `app.py` → código principal do dashboard.  
+- `dataset/` → contém os arquivos CSV de voos, aeroportos e companhias.  
+- `requirements.txt` → dependências do projeto.  
+- `README.md` → documentação.  
+
+---
+
+## ▶️ Como Executar
+
+1. Clone este repositório:
+
+```bash
+git clone https://github.com/Alchini/Dashboard-Voos-Brasil.git
+```
+
+2. Crie um ambiente virtual e instale as dependências:
+
+```bash
+python -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate      # Windows
+
+pip install -r requirements.txt
+```
+
+3. Execute o Streamlit:
+
+```bash
+streamlit run main.py
+```
+
+4. Abra no navegador:  
+👉 [http://localhost:8501](http://localhost:8501)
+
+---
+
+## Exemplo de Uso
+
+- Selecione os anos disponíveis no **menu lateral**.  
+- Veja o **resumo geral** em cards.  
+- Explore as abas: **Aeroportos**, **Companhias**, **Dias/Períodos**.  
+- Analise as **tendências de aumento/redução** nos atrasos.  
+
+---
