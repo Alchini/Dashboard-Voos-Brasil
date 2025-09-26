@@ -7,8 +7,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 #Config da pag
 st.set_page_config(
-    page_title="Dashboard de Voos no Brasil",
-    page_icon="✈️",
+    page_title="Dashboard - Atrasos Voos no Brasil",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -72,7 +71,7 @@ df_filtrado = df_realizados[df_realizados['ano'].isin(anos_selecionados)]
 
 
 #geral
-st.header("Visão Geral do Período Selecionado")
+st.header("Geral")
 total_voos = df_filtrado.shape[0]
 total_atrasos = df_filtrado['voo_atrasado'].sum()
 percentual_atrasos = (total_atrasos / total_voos) * 100 if total_voos > 0 else 0
@@ -85,7 +84,7 @@ col3.metric("Percentual de Atrasos", f"{percentual_atrasos:.2f}%")
 st.divider()
 
 #tabs
-tab1, tab2, tab3 = st.tabs(["🏆 Aeroportos", "✈️ Companhias", "📅 Dias/Períodos"])
+tab1, tab2, tab3 = st.tabs(["Aeroportos", "Companhias", "Dias/Períodos"])
 
 with tab1:
     st.subheader("Top 10 Aeroportos com Mais Atrasos")
@@ -211,7 +210,7 @@ if all(ano in anos_presentes_no_filtro for ano in anos_necessarios_tendencia):
         else:
             st.info("Nenhum aeroporto apresentou tendência consistente de redução.")
 
-    st.markdown("### 🔎 Evolução Ano a Ano dos Atrasos (2022–2024)")
+    st.markdown("###Evolução Ano a Ano dos Atrasos (2022–2024)")
     df_line = df_filtrado.groupby(['ano', 'ICAO Aeródromo Origem'])['voo_atrasado'].sum().reset_index()
     fig_line = px.line(
         df_line,
